@@ -21,8 +21,7 @@ net.createServer(connection => {
   connection.write(`Now watching "${filename}" for changes...\n`);
 
   // Watcher setup.
-  const watcher =
-    fs.watch(filename, () => connection.write(`File changed: ${new Date()}\n`));
+  const watcher = fs.watch(filename, () => connection.write(`File changed: ${new Date()}\n`));
 
   // Cleanup.
   connection.on('close', () => {
